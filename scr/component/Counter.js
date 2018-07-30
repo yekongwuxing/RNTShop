@@ -124,3 +124,8 @@ const styles = StyleSheet.create({
 
     }
 });
+
+Counter.propTypes={
+    initValus:PropTypes.number,
+    style:PropTypes.object
+};
