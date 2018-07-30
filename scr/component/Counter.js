@@ -6,7 +6,7 @@ import {
     TouchableOpacity,
     TextInput
 } from 'react-native';
-
+import PropTypes from 'prop-types';
 export default class Counter extends Component {
    // 构造
      constructor(props) {
@@ -20,6 +20,36 @@ export default class Counter extends Component {
      static defaultProps = {
         initValus:1
      };
+
+    componentWillMount() {
+        console.log("componentWillMount")
+    }
+
+    componentDidMount() {
+        console.log("componentDidMount")
+    }
+    //运行(更新)阶段
+
+    componentWillReceiveProps(nextProps) {
+        console.log("componentWillReceiveProps")
+    }
+    shouldComponentUpdate(nextProps, nextState) {
+        console.log("shouldComponentUpdate")
+        return true;
+    }
+    componentWillUpdate() {
+        console.log("componentWillUpdate")
+
+    }
+    componentDidUpdate() {
+        console.log("componentDidUpdate")
+
+    }
+    //销毁阶段
+    componentWillUnmount() {
+        console.log("componentWillUnmount")
+
+    }
      //减
      _reduce() {
          this.setState ({
@@ -66,7 +96,7 @@ export default class Counter extends Component {
                                 returnKeyLabel='done'
                                 keyboardType='numeric'
                                 onChangeText={(txt) => this.setState({value:Number(txt)})}
-                                onFocus={false}
+                                autoFocus={false}
                                 onEndEditing={this._checkNum.bind(this)}
                      ></TextInput>
                  </View>
