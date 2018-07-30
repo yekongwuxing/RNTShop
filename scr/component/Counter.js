@@ -13,7 +13,7 @@ export default class Counter extends Component {
        super(props);
        // 初始状态
        this.state = {
-           value:1
+           value:this.props.initValus||1
        };
      }
      //减
@@ -43,9 +43,10 @@ export default class Counter extends Component {
     //TouchableOpacity的属性
     //activeOpacity：触摸时透明度的设置
     // underlayColor：点击时背景阴影效果的背景颜色
+    //this.props.style 调用父组件的样式
      render() {
          return(
-             <View style={styles.operatingingBox}>
+             <View style={[styles.operatingBox,this.props.style]}>
 
                  <TouchableOpacity activeOpacity={0.2}
                                    onPress={this._reduce.bind(this)}>
@@ -79,7 +80,7 @@ export default class Counter extends Component {
 }
 
 const styles = StyleSheet.create({
-    operatingingBox:{
+    operatingBox:{
         width:120,
         height:35,
         flexDirection:'row',
