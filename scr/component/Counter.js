@@ -16,6 +16,10 @@ export default class Counter extends Component {
            value:this.props.initValus||1
        };
      }
+     //默认属性
+     static defaultProps = {
+        initValus:1
+     };
      //减
      _reduce() {
          this.setState ({
