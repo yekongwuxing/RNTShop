@@ -15,53 +15,24 @@ export default class Counter extends Component {
        this.state = {
            value:this.props.initValus||1
        };
+       this._update = this._update.bind(this);
      }
      //默认属性
      static defaultProps = {
-        initValus:1
+        initValus:1,
+         onUpdate:f => f//默认是一个什么都不做的函数
+
      };
 
-    componentWillMount() {
-        console.log("componentWillMount")
-    }
-
-    componentDidMount() {
-        console.log("componentDidMount")
-    }
-    //运行(更新)阶段
-
-    componentWillReceiveProps(nextProps) {
-        console.log("componentWillReceiveProps")
-    }
-    shouldComponentUpdate(nextProps, nextState) {
-        console.log("shouldComponentUpdate")
-        return true;
-    }
-    componentWillUpdate() {
-        console.log("componentWillUpdate")
-
-    }
-    componentDidUpdate() {
-        console.log("componentDidUpdate")
-
-    }
-    //销毁阶段
-    componentWillUnmount() {
-        console.log("componentWillUnmount")
-
-    }
      //减
      _reduce() {
-         this.setState ({
-            value: this.state.value - 1
-         })
+         let value = this.state.value - 1;
+         if (value < 1) value = 0;
+         this._update(value);
      }
      //加
      _plus() {
-         this.setState ({
-             value: this.state.value + 1
-         })
-
+         this._update(this.state.value + 1);
      }
      _checkNum() {
          let value = this.state.value;
@@ -72,6 +43,16 @@ export default class Counter extends Component {
          }
          this.setState ({
              value:value
+         })
+         this._update(value);
+
+     }
+     _update(valus){
+         //父组件的值
+         this.props.onUpdate(this.state.value,valus);
+         //子组件的值
+         this.setState({
+             value:valus
          })
      }
     //TouchableOpacity的属性
@@ -161,5 +142,6 @@ const styles = StyleSheet.create({
 
 Counter.propTypes={
     initValus:PropTypes.number,
-    style:PropTypes.object
+    style:PropTypes.object,
+    onUpdate:PropTypes.func
 };
