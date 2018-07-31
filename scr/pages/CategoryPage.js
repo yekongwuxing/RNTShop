@@ -10,7 +10,7 @@ export default class IndexPage extends Component {
     render() {
         return ( // 渲染布局
             <View style={styles.container}>
-                <Text style={styles.txt}>首页</Text>
+                <Text style={styles.txt}>分类</Text>
             </View>
         );
     }
