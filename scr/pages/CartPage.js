@@ -4,13 +4,19 @@ import {
     Text,
     StyleSheet
 } from 'react-native';
+import theme from "../config/theme";
 
 export default class IndexPage extends Component {
 
     render() {
         return ( // 渲染布局
             <View style={styles.container}>
-                <Text style={styles.txt}>购物车</Text>
+                <View style={{margin:10,width:40,height:50,backgroundColor:'red'}}/>
+                <View style={{margin:10,width:60,height:50,backgroundColor:'green'}}/>
+                <View style={{margin:10,width:80,height:50,backgroundColor:'blue'}}/>
+                <View style={{margin:10,width:100,height:50,backgroundColor:'black'}}/>
+                <View style={{margin:10,width:100,height:50,backgroundColor:'orange'}}/>
+                <View style={{margin:10,width:40,height:50,backgroundColor:'pink'}}/>
             </View>
         );
     }
@@ -18,15 +24,10 @@ export default class IndexPage extends Component {
 // 样式文件
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
+        paddingTop:theme.barContentPad,
+        flexDirection:'row',
+        flexWrap:'wrap',
+        justifyContent: 'space-around',
         backgroundColor: '#F5FCFF',
-    },
-    txt:{
-        margin:10,
-        fontSize:20,
-        color:'black'
-
     }
 });

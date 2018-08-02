@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import {
     View,
     Text,
-    StyleSheet
+    StyleSheet,
+    StatusBar
 } from 'react-native';
 
 export default class IndexPage extends Component {
@@ -10,7 +11,14 @@ export default class IndexPage extends Component {
     render() {
         return ( // 渲染布局
             <View style={styles.container}>
-                <Text style={styles.txt}>首页</Text>
+                <StatusBar barStyle={'dark-content'} backgroundColor={'#fff'} />
+                {/*父布局*/}
+                <View style={{borderWidth:2}}>
+                    <View style={styles.boxStyle}>
+                        {/*子布局*/}
+                        <View style={{flex:1,backgroundColor:'red'}}></View>
+                    </View>
+                </View>
             </View>
         );
     }
@@ -23,10 +31,13 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: '#F5FCFF',
     },
-    txt:{
-        margin:10,
-        fontSize:20,
-        color:'black'
+    boxStyle:{
+        width:200,
+        height:200,
+        padding:30,//内边距
+        margin:50,//外边距
+        borderWidth:20,//边框宽度
+        borderColor:'green'//边框颜色
 
     }
 });
