@@ -26,6 +26,7 @@ import CartPage from './scr/pages/CartPage';
 import MinePage from './scr/pages/MinePage';
 import BrandPage from './scr/pages/BrandPage';
 import CustomTabBar from './scr/component/CustomTabBar';
+import SearchPage from './scr/pages/SearchPage';
 
 const CategoryTab = createMaterialTopTabNavigator({
     CategoryPage:{
@@ -146,7 +147,15 @@ const App = createStackNavigator({
             gesturesEnabled: true,
             headerTitle: null
         }
+    },
+    SearchPage:{
+        screen:SearchPage,
+        navigationOptions: {
+            gesturesEnabled: true,
+            headerTitle: null
+        }
     }
+
 }, {
     mode: 'card',// 页面切换模式, 左右是card(相当于iOS中的push效果), 上下是modal(相当于iOS中的modal效果)
     headerMode: 'none',//// 导航栏的显示模式, screen: 有渐变透明效果, float: 无透明效果, none: 隐藏导航栏
