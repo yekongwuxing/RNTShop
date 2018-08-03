@@ -7,7 +7,7 @@ import {Dimensions} from 'react-native';
  * height:1334
  */
 export  let screenWidth = Dimensions.get('window').width;
-export  let screenWidth = Dimensions.get('window').width;
+export  let screenHeight = Dimensions.get('window').height;
 const r2 = 2;
 const w2 = 750/r2;
 const h2 = 1334/r2;
